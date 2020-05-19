@@ -1,3 +1,4 @@
+{% extends 'blog/base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
@@ -12,22 +13,21 @@
 </head>
 <body>
 	<div class="page-header">
-		<h1><a href="/">Django Girls Blog</a></h1>
-		</div>
-		<img src="{% static 'css/sunset.jpg' %}" width="300" height="200">
-		<video src="{% static 'css/cave.mp4' %}" controls loop autoplay width="300" height="200"></video>
-	<div class="content container">
-			<div class="row">
-				<div class="col-md-8">
-					{% for post in posts %}
-						<div class="post">
-							<div class="date">
-								<p>published: {{ post.published_date }}</p>
-							</div>
-							<h1><a href="">{{ post.title }}</a></h1>
-							<p>{{ post.text|linebreaksbr }}</p>
-						</div>
-					{% endfor %}
+		<h1><a href="/">Web Service programming blog</a></h1>
+	</div>
+
+	{% block content %}
+		{% for post in posts %}
+			<div class="post">
+				<div class="date">
+					{{ post.published_date }}
+				</div>
+				<h1><a href="">{{ post.title }}</a></h1>
+				<p>{{ post.text|linebreaksbr }}</p>
+			</div>
+		{% endfor %}
+	{% endblock %}
+	
 				</div>
 			</div>
 		</div>
